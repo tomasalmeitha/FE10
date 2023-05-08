@@ -45,6 +45,9 @@ public class Exe_01 {
 
         /*--------------------------------------------------------*/
 
+        System.out.print("Insira a marca do segundo carro: ");
+        String marcaAdv = input.next();
+
         System.out.print("Insira a potencia do carro adversário: ");
         int potenciaAdv = input.nextInt();
 
@@ -54,10 +57,13 @@ public class Exe_01 {
         System.out.print("Insira o ano de fabrico do carro adversário: ");
         int anoFabricoAdv = input.nextInt();
 
+        System.out.print("Insira quantos litros gasta o carroAdv aos 100Km: ");
+        double litros100kmAdv = input.nextDouble();
+
         System.out.print("Deseja saber o resultado da corrida? (s/n): ");
         String opcao = input.next();
 
-        Carro carroAdv = new Carro(marca, modelo, anoFabricoAdv, potenciaAdv, cilindradaAdv, tipoCombustivel, litros100km);
+        Carro carroAdv = new Carro(marcaAdv, modelo, anoFabricoAdv, potenciaAdv, cilindradaAdv, tipoCombustivel, litros100kmAdv);
 
         Carro carroTorneio = new Carro("Mercedes","A45",2023,420,2000,Combustivel.GASOLINA,20);
 
@@ -66,10 +72,16 @@ public class Exe_01 {
         }
 
         Carro vencedor = carro.corrida(carroAdv);
-
+        System.out.println("Vencedor: "+vencedor.getMarca()+" "+vencedor.getModelo());
         vencedor.corrida(carroTorneio);
 
+        System.out.print("Insira a distância percorrida: ");
+        double distancia = input.nextDouble();
 
+
+        carro.consumoCombustivel(distancia);
+        carroAdv.consumoCombustivel(distancia);
+        carroTorneio.consumoCombustivel(distancia);
     }
 
 

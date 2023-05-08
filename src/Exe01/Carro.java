@@ -23,6 +23,14 @@ public class Carro {
         this.litros100km = litros100km;
     }
 
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
     public int getPotencia(){
         return this.potencia;
     }
@@ -43,6 +51,7 @@ public class Carro {
 
                 System.out.println("Deita um pouco de fumo… Custa a pegar… O carro está ligado Vrum-vrum-vrum");
             } else {
+
                 System.out.println("Custa a pegar... O carro está ligado! Vrum-vrum-vrum");
             }
 
@@ -85,6 +94,11 @@ public class Carro {
             }
             }
         return null;
+        }
+
+        public void consumoCombustivel(double distancia){
+            double consumo = (this.litros100km*distancia)/100;
+            System.out.println("O carro " +this.marca+ " consumiu "+consumo+ " litros");
         }
     }
 
