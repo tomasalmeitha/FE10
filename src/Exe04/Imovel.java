@@ -30,57 +30,6 @@ public class Imovel {
         this.acabamento = acabamento;
     }
 
-    /*public void precoCasa() {
-
-        double valorImovel = (this.numQuartos * 7500) + (this.numWC * 10500) + (this.areaPiscina * 1000);
-
-        if (this.tipoCasa.equals(tipoCasa.APARTAMENTO)) {
-
-            if (this.acabamento.equals(this.acabamento.RESTAURO)) {
-                double preco = (this.area * 1000) * 0.5 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.USADA)) {
-                double preco = (this.area * 1000) * 0.9 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA)) {
-                double preco = (this.area * 1000) + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA_COM_ALTO_ACABAMENTO)) {
-                double preco = (this.area * 1000) * 1.25 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            }
-        } else if (this.tipoCasa.equals(tipoCasa.CASA)) {
-
-            if (this.acabamento.equals(this.acabamento.RESTAURO)) {
-                double preco = (this.area * 3000) * 0.5 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.USADA)) {
-                double preco = (this.area * 3000) * 0.9 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA)) {
-                double preco = (this.area * 3000) + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA_COM_ALTO_ACABAMENTO)) {
-                double preco = (this.area * 3000) * 1.25 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            }
-        } else if (this.tipoCasa.equals(tipoCasa.MANSAO)) {
-
-            if (this.acabamento.equals(this.acabamento.RESTAURO)) {
-                double preco = (this.area * 5000) * 0.5 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.USADA)) {
-                double preco = (this.area * 5000) * 0.9 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA)) {
-                double preco = (this.area * 5000) + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            } else if (this.acabamento.equals(this.acabamento.NOVA_COM_ALTO_ACABAMENTO)) {
-                double preco = (this.area * 5000) * 1.25 + valorImovel;
-                System.out.println("O valor da casa é: "+preco+ " €");
-            }
-        }
-    }*/
 
     public double valorCasa(){
 
@@ -114,5 +63,27 @@ public class Imovel {
         return valorFinal;
     }
 
+    public void descricaoCasa(){
+        System.out.println("O "+this.getClass().getSimpleName()+" fica na "+this.rua+" nº "+this.numPorta+" na cidade do "+this.cidade+" é uma casa do tipo "+this.tipoCasa+" com um acabamento "+this.acabamento+" com uma área de "+this.area+" m2 e com "+this.numQuartos+" quartos "+this.numWC+" WC's e uma piscina de "+this.areaPiscina+" m2" );
+    }
+
+    public Imovel compararImoveis(Imovel casa2){
+        double valor1 = this.valorCasa();
+        double valor2 = casa2.valorCasa();
+
+        if(valor1>valor2){
+            System.out.println("A casa 1 é mais cara e custa: "+valor1+ " €");
+            return this;
+        } else if (valor1<valor2) {
+            System.out.println("A casa 2 é mais cara e custa: "+valor2+ " €");
+            return casa2;
+        }
+        else {
+            System.out.println("Ambas as casas têm o mesmo valor" +valor1);
+            return null;
+        }
+
+    }
 
 }
+
