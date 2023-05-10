@@ -35,8 +35,13 @@ public class Pessoa {
 class Agenda {
     private ArrayList<Pessoa> pessoas;
 
-    public Agenda() {
-        pessoas = new ArrayList<>();
+//    public Agenda() {
+//        pessoas = new ArrayList<>();
+//    }
+
+    // Método construtor da classe 'Agenda' que recebe o arrayList como parametro
+    public Agenda(ArrayList<Pessoa> pessoas) {
+        this.pessoas = pessoas;
     }
 
     public void adicionarPessoa(Pessoa pessoa) {
